@@ -6,11 +6,15 @@
 
 #include "boost/version.hpp"
 #include <iostream>
+#include "logger.h"
+#include <stdlib.h>
 
 int main(int argc, char* argv[]) {
-  std::cout << "Using Boost "     
+  init_logger();
+  BOOST_LOG_TRIVIAL(info) << "Boost Version "     
           << BOOST_VERSION / 100000     << "."  // maj. version
           << BOOST_VERSION / 100 % 1000 << "."  // min. version
-          << BOOST_VERSION % 100                // patch version
-          << std::endl;
+          << BOOST_VERSION % 100;                // patch version
+
+  return EXIT_SUCCESS;
 }
