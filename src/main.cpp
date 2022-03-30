@@ -5,9 +5,9 @@
 ---------------------------------------------------------------- */
 
 #include "boost/version.hpp"
-#include <iostream>
 #include "logger.h"
 #include <stdlib.h>
+#include <boost/program_options.hpp>
 
 int main(int argc, char* argv[]) {
   init_logger();

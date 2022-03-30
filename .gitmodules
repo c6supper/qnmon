@@ -1,0 +1,3 @@
+[submodule "proto"]
+	path = proto
+	url = git@github.com:c6supper/neptune-profiler-proto.git

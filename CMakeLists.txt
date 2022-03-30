@@ -17,12 +17,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
 
+add_subdirectory(proto)
 add_subdirectory(module)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 target_link_libraries(${PROJECT_NAME}
   LINK_PUBLIC ${Boost_LIBRARIES}
+  neptune-profiler-proto
   sub::cpu
 
   # sub::ram
