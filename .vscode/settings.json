@@ -14,5 +14,8 @@
     "editor.suggest.insertMode": "replace",
     "editor.semanticHighlighting.enabled": true
   },
-  "clang-tidy.lintOnSave": true
+  "clang-tidy.lintOnSave": true,
+  "files.associations": {
+    "algorithm": "cpp"
+  }
 }

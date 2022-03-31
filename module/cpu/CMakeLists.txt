@@ -2,9 +2,15 @@
 project(cpu)
 
 # Add a library with the above sources
-add_library(${PROJECT_NAME} src/cpu.cpp)
-add_library(sub::cpu ALIAS ${PROJECT_NAME})
+add_executable(${PROJECT_NAME}
+  src/cpu.cpp
+  ../../common/src/main.cpp
+)
+
+target_link_libraries(${PROJECT_NAME}
+  LINK_PUBLIC ${Boost_LIBRARIES}
+)
 
 target_include_directories(${PROJECT_NAME}
-  PUBLIC ${PROJECT_SOURCE_DIR}/include
+  PRIVATE ../common/inc
 )
