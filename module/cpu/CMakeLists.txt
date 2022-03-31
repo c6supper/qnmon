@@ -5,6 +5,7 @@ project(cpu)
 add_executable(${PROJECT_NAME}
   src/cpu.cpp
   ../../common/src/main.cpp
+  ../../common/src/property_manager.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

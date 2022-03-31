@@ -23,7 +23,9 @@ INCLUDE_DIRECTORIES(
 add_subdirectory(proto)
 add_subdirectory(module)
 
-add_executable(${PROJECT_NAME} common/src/main.cpp)
+add_executable(${PROJECT_NAME}
+  common/src/main.cpp
+  common/src/property_manager.cpp)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
   inc

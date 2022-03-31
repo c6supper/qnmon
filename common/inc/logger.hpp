@@ -4,6 +4,8 @@
   See LICENSE in the project root for license information.
 ---------------------------------------------------------------- */
 
+#pragma once
+
 #include <boost/log/core.hpp>
 #include <boost/log/expressions.hpp>
 #include <boost/log/sinks/text_file_backend.hpp>
@@ -15,14 +17,13 @@
 #include <boost/log/utility/setup/file.hpp>
 
 static inline void init_logger() {
-  static const std::string COMMON_FMT("[%TimeStamp%][%Severity%]:  %Message%");
+  static const std::string kCommon("[%TimeStamp%][%Severity%]:  %Message%");
 
   boost::log::register_simple_formatter_factory<
       boost::log::trivial::severity_level, char>("Severity");
 
   // Output message to console
-  boost::log::add_console_log(std::cout,
-                              boost::log::keywords::format = COMMON_FMT,
+  boost::log::add_console_log(std::cout, boost::log::keywords::format = kCommon,
                               boost::log::keywords::auto_flush = true);
 
 #ifndef DEBUG
@@ -34,7 +35,7 @@ static inline void init_logger() {
       boost::log::keywords::max_size = 20 * 1024 * 1024,
       boost::log::keywords::time_based_rotation =
           boost::log::sinks::file::rotation_at_time_point(0, 0, 0),
-      boost::log::keywords::format = COMMON_FMT,
+      boost::log::keywords::format = kCommon,
       boost::log::keywords::auto_flush = true);
 #endif
 
