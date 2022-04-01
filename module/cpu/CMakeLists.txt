@@ -10,8 +10,6 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
   LINK_PUBLIC ${Boost_LIBRARIES}
-  asio-grpc::asio-grpc
-  Boost::headers
   -lsocket
 )
 

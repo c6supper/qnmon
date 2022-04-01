@@ -38,8 +38,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME}
   LINK_PUBLIC ${Boost_LIBRARIES}
   neptune-profiler-proto
-  asio-grpc::asio-grpc
-  Boost::headers
   gRPC::grpc++
   -lsocket
 )
