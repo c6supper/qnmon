@@ -7,13 +7,13 @@
 #pragma once
 
 #include <boost/property_tree/ptree.hpp>
-
-#include "singleton.hpp"
+#include <boost/serialization/singleton.hpp>
 
 namespace netpune {
 namespace profiler {
 namespace unmon {
-class PropertyManager : public Singleton<PropertyManager> {
+class PropertyManager
+    : public boost::serialization::singleton<PropertyManager> {
  public:
   PropertyManager();
   virtual ~PropertyManager() = default;

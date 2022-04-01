@@ -10,8 +10,9 @@
 
 using namespace netpune::profiler::unmon;
 namespace pt = boost::property_tree;
+namespace sl = boost::serialization;
 
-PropertyManager::PropertyManager() : Singleton<PropertyManager>() {}
+PropertyManager::PropertyManager() : sl::singleton<PropertyManager>() {}
 
 void PropertyManager::load(const std::string &filename) {
   // Parse the json into the property tree.

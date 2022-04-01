@@ -21,7 +21,7 @@ static boost::program_options::variables_map vm;
 int main(int argc, char* argv[]) {
   init_logger();
   vm = extract_opt(argc, argv);
-  unmon::Singleton<unmon::PropertyManager>::getInstance();
+  unmon::PropertyManager::get_const_instance();
   boost::filesystem::path app = argv[0];
   BOOST_LOG_TRIVIAL(info) << app.stem().string() << " built with "
                           << "Boost Version " << BOOST_VERSION / 100000
