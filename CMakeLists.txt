@@ -12,12 +12,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ADD_DEFINITIONS(-DBOOST_LOG_DYN_LINK)
 FIND_PACKAGE(Boost 1.78 COMPONENTS program_options thread log log_setup REQUIRED)
+find_package(Protobuf REQUIRED)
+find_package(gRPC REQUIRED)
+find_package(asio-grpc REQUIRED)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 
 INCLUDE_DIRECTORIES(
   ${Boost_INCLUDE_DIR}
   common/inc
+  proto/cpp
 )
 
 add_subdirectory(proto)
@@ -34,4 +38,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME}
   LINK_PUBLIC ${Boost_LIBRARIES}
   neptune-profiler-proto
+  asio-grpc::asio-grpc
+  Boost::headers
+  gRPC::grpc++
+  -lsocket
 )
