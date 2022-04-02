@@ -8,10 +8,16 @@ add_executable(${PROJECT_NAME}
   ../../common/src/property_manager.cpp
 )
 
-target_link_libraries(${PROJECT_NAME}
-  LINK_PUBLIC ${Boost_LIBRARIES}
-  -lsocket
-)
+if(${CMAKE_SYSTEM_NAME} STREQUAL QNX)
+  target_link_libraries(${PROJECT_NAME}
+    LINK_PUBLIC ${Boost_LIBRARIES}
+    -lsocket
+  )
+elseif()
+  target_link_libraries(${PROJECT_NAME}
+    LINK_PUBLIC ${Boost_LIBRARIES}
+  )
+endif()
 
 target_include_directories(${PROJECT_NAME}
   PRIVATE ../common/inc
